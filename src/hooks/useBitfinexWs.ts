@@ -53,9 +53,6 @@ export function useBitfinexWs() {
             if (!event.wasClean) {
                 dispatch(setError("WebSocket closed unexpectedly: " + event.reason));
                 dispatch(clearBook());
-                setTimeout(() => {
-                    connectWebSocket(precisionRef.current);
-                }, 3000);
             }
         }
         websocketRef.current = ws
